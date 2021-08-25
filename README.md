@@ -12,5 +12,5 @@ How to Enable Adobe Flash Player on Chrome Browser?
 
 How to install flash player browser video:
 https://www.youtube.com/watch?v=Cv3umbqlw1g&t=1s
-# Future Plans?
-Optimize
+# Credit original repo
+https://github.com/tootyta/FlashBrowser2
