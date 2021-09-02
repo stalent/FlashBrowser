@@ -1,6 +1,6 @@
-# FlashBrowser2021
-A small flash browser capable of viewing/displaying pages with embedded flash content.
-Run flash player in browser on windows.
+# Flash Browser 2021
+A browser dedicating to supporting flash
+Run flash player in browser on Windows.
  
 [Download Installer](https://github.com/radubirsan/FlashBrowser2/releases/tag/flashbrowser) (580 MB) 
 
