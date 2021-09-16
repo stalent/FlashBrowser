@@ -1,4 +1,4 @@
-# Flash Browser 2021
+# Flash Browser :heavy_check_mark:
 A browser dedicating to supporting flash
 Run flash player in browser on Windows.
  
