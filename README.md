@@ -15,6 +15,11 @@ How to Enable Adobe Flash Player on Chrome Browser?
 <br/>![Captures](https://images-na.ssl-images-amazon.com/images/I/A1p%2BBYQK5BL.png)
 
 How to install flash player browser video:
+
+:movie_camera: Windows:
 https://www.youtube.com/watch?v=Cv3umbqlw1g&t=1s
+:movie_camera: Mac:
+https://www.youtube.com/watch?v=NZFzMEZ9l-Y
+
 # Credit original repo
 https://github.com/tootyta/FlashBrowser2
