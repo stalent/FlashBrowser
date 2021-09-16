@@ -18,6 +18,7 @@ How to install flash player browser video:
 
 :movie_camera: Windows:
 https://www.youtube.com/watch?v=Cv3umbqlw1g&t=1s
+
 :movie_camera: Mac:
 https://www.youtube.com/watch?v=NZFzMEZ9l-Y
 
