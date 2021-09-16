@@ -1,4 +1,4 @@
-# Flash Browser :heavy_check_mark:
+# Flash Browser :star::star::star: ( Please star the project )
 A browser dedicating to supporting flash
 Run flash player in browser on Windows.
  
