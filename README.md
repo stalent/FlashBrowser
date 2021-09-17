@@ -1,4 +1,4 @@
-# Flash Browser :star: ( please give us a star )
+# Flash Browser  (please give us a :star:)
 A browser dedicating to supporting flash
 Run flash player in browser on Windows.
  
