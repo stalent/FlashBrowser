@@ -3,10 +3,10 @@ A browser dedicating to supporting flash
 Run flash player in browser on Windows.
  
 Windows 10:
-:link: [Download Installer](https://github.com/radubirsan/FlashBrowser2/releases/tag/flashbrowser) (176 MB) 
+:link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.21) (176 MB) 
 
 MacOS:
-:link: [Download Installer](https://github.com/radubirsan/FlashBrowser2/releases/tag/v0.1) (273 MB) 
+:link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.2) (273 MB) 
 
 # How do I use it?
 How to Enable Adobe Flash Player on Chrome Browser?
