@@ -9,9 +9,9 @@ MacOS:
 :link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.2) (268 MB) 
 
 Linux (tested on Ubuntu):
-:link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.01) (147 MB) 
+:link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.01) ([Run flash on Ubuntu tutorial](https://flash.pm/2021/09/23/run-flash-player-on-linux-ubuntu-with-flashbrowser-in-14-steps/)) 
 
-:link: [How to run instructions](https://flash.pm/2021/09/23/run-flash-player-on-linux-ubuntu-with-flashbrowser-in-14-steps/)
+:link: 
 
 # How do I use it?
 How to Enable Adobe Flash Player on Chrome Browser?
