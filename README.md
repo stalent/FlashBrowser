@@ -26,4 +26,6 @@ https://www.youtube.com/watch?v=Cv3umbqlw1g&t=1s
 https://www.youtube.com/watch?v=NZFzMEZ9l-Y
 
 # Credit original repo
-https://github.com/tootyta/FlashBrowser
+https://github.com/tootyta/FlashBrowser2
+
+[Download Count] https://hanadigital.github.io/grev/?user=radubirsan&repo=FlashBrowser2
