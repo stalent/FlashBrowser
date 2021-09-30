@@ -3,7 +3,7 @@ A browser dedicating to supporting flash
 Run flash player in browser on Windows.
  
 Windows 10:
-:link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.21) (124 MB) 
+:link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases) (124 MB) 
 
 MacOS:
 :link: [Download Installer](https://github.com/radubirsan/FlashBrowser/releases/tag/v0.2) (268 MB) 
