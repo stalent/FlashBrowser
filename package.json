@@ -1,25 +1,54 @@
 {
-  "name": "flash-browser2",
-  "version": "0.0.1",
-  "description": "A small browser capable of viewing/displaying pages with embedded flash content.",
+  "name": "flash-browser",
+  "productName": "Flash Browser",
+  "version": "0.0.3",
+  "description": "A small browser capable of displaying pages with embedded flash content.",
   "main": "main.js",
   "author": {
-    "name": "tootyta12"
+    "name": "as3"
   },
   "directories": {
     "flashver": "flashver"
   },
+  "build": {
+    "appId": "pm.flash.browser"
+	},
+	
+   "publish": [
+    {
+      "provider": "github",
+      "private": false,
+      "owner": "radubirsan",
+      "repo": "flashbrowser",
+      "token": "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"
+    }
+  ],
+	
+
   "scripts": {
-    "start": "electron .",
-    "build": "electron-packager . FlashBrowser2 --platform=all",
+    "test": "echo \"Error: no test specifieddd\" && exit 1",
+    "make-mac": "npx @electron-forge/cli make --platform darwin",
+	"make": "npx @electron-forge/cli make",
+    "start": "electron . --enable-logging --overwrite",
+    "build": "electron-packager . FlashBrowser --platform=win32 --overwrite --icon=icon.ico",
+	"build-linux": "electron-packager . FlashBrowser --platform=linux --overwrite --icon=g.png",
     "pack": "build --dir",
     "dist": "electron-builder"
   },
+
   "devDependencies": {
-    "electron": "^11.4.9",
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "electron": "^11.5.0",
     "electron-builder": "^22.11.7",
     "electron-packager": "^15.2.0",
     "electron-prompt": "^1.6.2"
+	 
   },
-  "dependencies": {}
+  "repository": {
+	  "type" : "git",
+	  "url" : "https://github.com/radubirsan/FlashBrowser.git"
+  },
+    "dependencies": {
+    "electron-prompt": "^1.6.2"
+  }
 }
