@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=Cv3umbqlw1g&t=1s
 :movie_camera: Mac:
 https://www.youtube.com/watch?v=NZFzMEZ9l-Y
 
-# Credit original repo
-https://github.com/tootyta/FlashBrowser2
+# Websites with flash games:
+https://itch.io/games/flash
 
 [Download Count](https://hanadigital.github.io/grev/?user=radubirsan&repo=FlashBrowser2)
