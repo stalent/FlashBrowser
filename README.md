@@ -29,6 +29,6 @@ https://www.youtube.com/watch?v=NZFzMEZ9l-Y
 https://itch.io/games/flash <br/>
 http://mystreous.0fees.net/oyunlar/ <br/>
 http://www.kanogames.com/play/game/robokill <br/>
-http://www.stickpage.com/stickfights.shtml <br/>
+http://www.stickpage.com <br/>
 
 [Download Count](https://hanadigital.github.io/grev/?user=radubirsan&repo=FlashBrowser2)
