@@ -30,5 +30,7 @@ https://itch.io/games/flash <br/>
 http://mystreous.0fees.net/oyunlar/ <br/>
 http://www.kanogames.com/play/game/robokill <br/>
 http://www.stickpage.com <br/>
+#Learn AS3:
+https://www.webfx.com/blog/web-design/flash_tutorial_websites/<br/>
 
 [Download Count](https://hanadigital.github.io/grev/?user=radubirsan&repo=FlashBrowser2)
