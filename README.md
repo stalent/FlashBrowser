@@ -26,6 +26,7 @@ https://www.youtube.com/watch?v=Cv3umbqlw1g&t=1s
 https://www.youtube.com/watch?v=NZFzMEZ9l-Y
 
 # Websites with flash games:
+http://fancyplanet.org/ </br>
 https://itch.io/games/flash <br/>
 http://mystreous.0fees.net/oyunlar/ <br/>
 http://www.kanogames.com/play/game/robokill <br/>
