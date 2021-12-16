@@ -1,54 +1,69 @@
 {
-  "name": "flash-browser",
+  "name": "FlashBrowser",
   "productName": "Flash Browser",
-  "version": "0.0.3",
-  "description": "A small browser capable of displaying pages with embedded flash content.",
-  "main": "main.js",
-  "author": {
-    "name": "as3"
-  },
-  "directories": {
-    "flashver": "flashver"
-  },
-  "build": {
-    "appId": "pm.flash.browser"
-	},
-	
-   "publish": [
-    {
-      "provider": "github",
-      "private": false,
-      "owner": "radubirsan",
-      "repo": "flashbrowser",
-      "token": ""
-    }
-  ],
-	
-
+  "description": "Browser For Flash Player Games",
+  "homepage": "https://www.flash.pm",
+  "author": "AS3",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specifieddd\" && exit 1",
-    "make-mac": "npx @electron-forge/cli make --platform darwin",
-	"make": "npx @electron-forge/cli make",
-    "start": "electron . --enable-logging --overwrite",
-    "build": "electron-packager . FlashBrowser --platform=win32 --overwrite --icon=icon.ico",
-	"build-linux": "electron-packager . FlashBrowser --platform=linux --overwrite --icon=g.png",
-    "pack": "build --dir",
-    "dist": "electron-builder"
+    "start": "electron .",
+    "publish": "electron-builder --win -p always",
+    "build": "electron-builder --win",
+    "build1": "electron-packager . FlashBrowser --platform=darwin --overwrite --icon=icon.icns",
+    "build2": "electron-packager . FlashBrowser --platform=win32 --overwrite --icon=icon.ico",
+    "build3": "electron-packager . FlashBrowser --platform=linux --overwrite --icon=icon.ico"
   },
-
+  "license": "ISC",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.61",
-    "electron": "^11.5.0",
-    "electron-builder": "^22.11.7",
-    "electron-packager": "^15.2.0",
-    "electron-prompt": "^1.6.2"
-	 
+    "electron": "^9.0.5",
+    "electron-builder": "^22.9.1"
+  },
+  "dependencies": {
+    "@cliqz/adblocker-electron": "^1.23.0",
+    "cross-fetch": "^3.1.4",
+    "electron-context-menu": "^3.1.1",
+    "electron-navigation": "^6.6.6",
+    "electron-packager": "^15.4.0",
+    "electron-updater": "^4.3.5",
+    "resolve-dependencies": "^6.0.7"
   },
   "repository": {
-	  "type" : "git",
-	  "url" : "https://github.com/radubirsan/FlashBrowser.git"
+    "type": "git",
+    "url": "https://github.com/radubirsan/FlashBrowser.git"
   },
-    "dependencies": {
-    "electron-prompt": "^1.6.2"
+  "build": {
+    "appId": "pm.flash.browser",
+    "directories": {
+      "buildResources": "resources",
+      "flashver": "flashver",
+      "output": "release"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "comunity",
+        "repo": "FlashBrowser"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "uninstallDisplayName": "Flash Browser",
+      "oneClick": true,
+      "perMachine": false,
+      "artifactName": "FlashBrowser.${ext}"
+    }
   }
 }
