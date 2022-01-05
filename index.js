@@ -176,6 +176,11 @@ app.on('ready',   () => {
 		}
         
     });
+	
+	globalShortcut.register('CommandOrControl+F', () => {
+	 mainWindow.webContents.send('on-find');
+	});
+
 	globalShortcut.register("CTRL+SHIFT+I", () => {
 	 mainWindow.webContents.openDevTools();
 	});

@@ -34,9 +34,13 @@
 		const store = new Store({
 		  configName: 'user-preferences'
 		});
-		
-		let  home  = store.get('homepage');
-		
+		let  home
+		try{
+			  home  = store.get('homepage');
+		}
+		catch (error) {
+		    home  = null;
+		}
             const enav = new (require('electron-navigation'))({
                 defaultFavicons: true,
                 newTabCallback: (url, options) => {
@@ -73,8 +77,7 @@ var lastArgument = window.process.argv[length-1]
 		enav.newTab('https://search.flash.pm/', {icon: "clear"});
 		}
 		
-		
-		
+	
 	
 	
         </script>
