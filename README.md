@@ -1,4 +1,4 @@
-@@ -1,40 +1,3 @@
+
 # Flash Browser  (please give us a :star:)
 A browser dedicating to supporting adobe flash. 
 Run flash player in browser on:
