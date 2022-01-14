@@ -6,7 +6,6 @@ const {
     Menu
 } = require('electron');
 const {autoUpdater} = require("electron-updater");
-
 const path = require('path');
 const Store = require('./store.js');
 const contextMenu = require('electron-context-menu');
@@ -84,11 +83,16 @@ app.on('ready',   () => {
     let filePath = 'filePath';
 	console.log("inti param" + process.argv);
 	if(process.argv.length >= 2 && process.argv[1].indexOf(".swf") > 1) {
-		
-		filePath = process.argv[1];
-		filePath = filePath.replace(/\\/g, "/");
-		filePath =  'file:///' + filePath;
-		//open, read, handle file
+		if(process.argv[1].indexOf("http") > 0) {
+			console.log(998 + process.argv[1] );
+			filePath = process.argv[1].replace("FlashBrowser:", "");
+		}
+		else {
+			filePath = process.argv[1];
+			filePath = filePath.replace(/\\/g, "/");
+			filePath =  'file:///' + filePath;
+			//open, read, handle file
+		}
 	}
 	if(width < 100 || height < 100) {
 		width = 800;
@@ -176,44 +180,61 @@ app.on('ready',   () => {
 		}
         
     });
-	
-	globalShortcut.register('CommandOrControl+F', () => {
-	 mainWindow.webContents.send('on-find');
-	});
 
-	globalShortcut.register("CTRL+SHIFT+I", () => {
-	 mainWindow.webContents.openDevTools();
-	});
-	
-	globalShortcut.register("CmdOrCtrl+=", () => {
-		console.log("CmdOrCtrl+");
-		mainWindow.webContents.zoomFactor = mainWindow.webContents.getZoomFactor() + 0.2;
-	});
-	globalShortcut.register("CmdOrCtrl+-", () => {
-		mainWindow.webContents.zoomFactor = mainWindow.webContents.getZoomFactor() - 0.2;
-	});
 
-	globalShortcut.register("CTRL+SHIFT+F10", () => {
-		let session = mainWindow.webContents.session;
-        session.clearCache();
-        app.relaunch();
-        app.exit();
-	});
-	
+	app.on('browser-window-focus', () => {
+			globalShortcut.register('CTRL+SHIFT+q', () => {
+				console.log(22321 + enav)
+				NAV.newTab('https://www.flash.pm/browser/preview', {
+					close: false,
+					icon: NAV.TAB_ICON,
+					
+				});
+			});
+
+			globalShortcut.register('CommandOrControl+F', () => {
+			mainWindow.webContents.send('on-find');
+			});
+		
+			globalShortcut.register("CTRL+SHIFT+I", () => {
+			 mainWindow.webContents.openDevTools();
+			});
+			
+			globalShortcut.register("CmdOrCtrl+=", () => {
+				console.log("CmdOrCtrl+");
+				mainWindow.webContents.zoomFactor = mainWindow.webContents.getZoomFactor() + 0.2;
+			});
+			globalShortcut.register("CmdOrCtrl+-", () => {
+				mainWindow.webContents.zoomFactor = mainWindow.webContents.getZoomFactor() - 0.2;
+			});
+		
+			globalShortcut.register("CTRL+SHIFT+F10", () => {
+				let session = mainWindow.webContents.session;
+				session.clearCache();
+				app.relaunch();
+				app.exit();
+			});
+	})
+
+	app.on('browser-window-blur', () => {
+	  globalShortcut.unregisterAll()
+	})
+
+		
 	mainWindow.webContents.zoomFactor = 1;
 	console.log("checkForUpdatesAndNotify");
 	autoUpdater.checkForUpdatesAndNotify();
-	
+		
 
-	
-	
-var {ElectronBlocker} = require('@cliqz/adblocker-electron');
-var {fetch} = require('cross-fetch');
+	var {ElectronBlocker} = require('@cliqz/adblocker-electron');
+	var {fetch} = require('cross-fetch');
+	ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker)=>{	
+		blocker.enableBlockingInSession(mainWindow.webContents.session);
+		//console.log("--AddBlcoker started" + mainWindow.webContents.session);
+	});
 
-ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then((blocker)=>{
-	blocker.enableBlockingInSession(session.defaultSession);
-});
-	
+
+
 	
 });
 
@@ -243,17 +264,40 @@ exports.setFavorite = (a) => favoriteSetter(a);
 	
 function favoriteSetter(a){
      let fav =  store.get('favorites');
-	 if(fav && fav.indexOf(a) ) {
+	 if(fav && fav.indexOf(a) ==-1 ) {
 	     fav.push(a);
+		 store.set('favorites', fav);
+		 settingsShow(true)
 	 }
 	 else{
-		 fav = [a]
+		// fav = [a]
 	 }
-     store.set('favorites', fav);
-	 console.log("S url:" + fav);
+    
+	 console.log("S url:" + fav.indexOf(a));
 };
 
+exports.removeFav = (a) => removeFav(a);
 
+function removeFav(a){
+     let fav =  store.get('favorites');
+	 let fav2 = [] 
+	 for ( var i=0; i<fav.length; i++){
+		if(i!=a && typeof fav[i] === 'string'){
+			fav2.push(fav[i])
+		}
+	 }
+	 store.set('favorites', fav2);
+	 settingsShow(true)
+	 console.log("removeFav" + a + fav2.length);
+	
+};
+
+exports.showSettings = (a) => settingsShow(a);
+	
+function settingsShow(a){
+	let fav =  store.get('favorites');
+	mainWindow.webContents.send('ping', fav, a);
+};
 
 
 app.on('window-all-closed', () => {
@@ -291,3 +335,9 @@ autoUpdater.on('update-downloaded', () => {
     sendWindow('update-downloaded', 'Update downloaded');
     autoUpdater.quitAndInstall();
 });
+
+
+
+
+
+

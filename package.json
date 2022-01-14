@@ -7,12 +7,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "electron .",
+   "start": "electron .",
     "publish": "electron-builder --win -p always",
     "build": "electron-builder --win",
     "build1": "electron-packager . FlashBrowser --platform=darwin --overwrite --icon=icon.icns",
     "build2": "electron-packager . FlashBrowser --platform=win32 --overwrite --icon=icon.ico",
-    "build3": "electron-packager . FlashBrowser --all --overwrite --icon=icon.ico"
+    "build3": "electron-packager . FlashBrowser --all --overwrite --icon=icon.ico",
+    "build4": "electron-packager . FlashBrowser --all --overwrite --icon=icon.ico",
+    "buildWin32": "electron-packager . FlashBrowser --platform=win32 --arch=ia32 --overwrite --icon=icon.ico --production --prune -p always",
+    "buildWin64": "electron-packager . FlashBrowser --platform=win32 --overwrite --icon=icon.ico -p always --prune-license nm-prune --force"
   },
   "license": "ISC",
   "devDependencies": {

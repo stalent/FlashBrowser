@@ -7,5 +7,4 @@ FlashBrowser-win32-arm64
 FlashBrowser-win32-ia32
 FlashBrowser-win32-x64
 flashver/
-
-*.js
+node_modules/

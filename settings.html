@@ -3,22 +3,12 @@
     <head>
         <link rel="stylesheet" href="themes/chrome-like.css">
     </head>
-		<p style="color:grey;font-size:1px; height:28px; min-height:28px !important; -webkit-app-region: drag;"></p>	
-		<div id="flash-tabs" style="display: inline;">
+	<!--	<div id="flash-tabs" style="display: inline;">
 			<embed id="FlashTab1" src="https://flash.pm/games/F.php?swf=files/adventure,%20escape,%20fighter/Achilles.swf" style='display: none;'  width="320" height="200"></embed>
 			<embed id="FlashTab2" src="https://flash.pm/games/F.php?swf=files/adventure,%20escape,%20fighter/Alias-3.swf" style='display: none;' width="320" height="200"></embed>
 			<embed id="FlashTab3" src="https://flash.pm/games/F.php?swf=files/typing/Qwerty-Warriors-2.swf" width="320" style='display: none;'  width="320" height="200"></embed>
-		</div >
-		<div id="overlay">
-		<button  width="100%" onclick="showHideSettings()" style="font-size: 27px; border: none; background: none; color: hotpink;  background-color: #222222; horizontal-align:center; ">close</button>
-		
-			<div id="favoritesDiv">
-				<ul>
-					<li><a href="https://as3.ro" target="_blank" onclick="jsfunction(event)">Link 1</a></li>
-					<li><a href="#">Link 2</a></li>
-				</ul>
-			</div>
-			</div>
+		</div>
+		-->
     <body>
 		<div id="window-controls">
 			<div class="button" id="min-button">
@@ -88,85 +78,8 @@ var lastArgument = window.process.argv[length-1]
 		}
 		
 	
-
-
-	function jsfunction(e){
-		console.log(e.target.href)
-		e.preventDefault(); //optional);
-		enav.newTab(e.target.href);
-	}
-
-	var div = document.getElementById('overlay');
-	div.style = "display: none;";
-	require('electron').ipcRenderer.on('ping', showHideSettings);
-
-
-function showHideSettings(event, message, refresh){
-			 var div = document.getElementById('overlay');
-			
-			 
-			 let ht = window.getComputedStyle(div, null).getPropertyValue("display");
-			  console.log("Ping" + ht)
-			 if(div.style.display === 'none' && !refresh)
-			 {
-				 // Add the contents of options[0] to #foo:
-				document.getElementById('favoritesDiv').innerHTML = "";
-				document.getElementById('favoritesDiv').appendChild(makeUL(message));
-				div.style = "display: visible;";
-			 }
-			 else if(  refresh && ht === "block" ){
-				document.getElementById('favoritesDiv').innerHTML = "";
-				document.getElementById('favoritesDiv').appendChild(makeUL(message));
-				div.style = "display: visible;";
-			 }
-			 else{
-				div.style = "display: none;";
-			 }	 
-		}
-
-
-function makeUL(array) {
-    // Create the list element:
-    var list = document.createElement('ul');
-
-    for(var i = 0; i < array.length; i++) {
-        // Create the list item:
-        var item = document.createElement('li');
-      if(typeof array[i] === 'string') {
-		var a   =  document.createElement( 'a' )
-        a.text  = array[i].replace(/(^\w+:|^)\/\//, '').replace("www.","");
-        a.href  = array[i]
-		a.style = 'color:hotpink;font-size: 23px;'
-		a.onclick = jsfunction;
 	
-
-		let btn = document.createElement("button");
-			btn.innerHTML = " remove";
-			btn.id = i;
-			btn.style = "border: none; background: none; color: hotpink;  background-color: #222222;  margin-left: 30px; ";
-			btn.onclick = function (event) {
-					const { remote } = require('electron');
-					const mainProcess = remote.require('./index.js');
-					mainProcess.removeFav(event.target.id); // 'Yay' 
-					};
-
-		item.style = 'color:hotpink;font-size: 23px;'
-		item.appendChild(a);
-		item.appendChild(btn);
-        // Set its contents:
-        //item.appendChild(document.createTextNode(array[i]));
-
-        // Add it to the list:
-        list.appendChild(item);
-	 }
-    }
-
-    // Finally, return the constructed list:
-    return list;
-}
-
-
-
+	
         </script>
     </body>
 </html>

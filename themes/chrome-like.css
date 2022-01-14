@@ -89,6 +89,7 @@
   max-width: calc(100vw - 154px);
   padding-left: 1rem;
   padding-top: 0px;
+  position:fixed;
 }
 
 #nav-body-views {
@@ -237,5 +238,20 @@ body {
   flex: 1
 }
 
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: 'visible'; /*Hidden by default */
+  width: calc(100% - 300px); /* Full width (cover the whole page) */
+  height: calc(100% - 65px); /* Full height (cover the whole page) */
+  top: 65px;
+  left: 300px;
+ /* right: 600px;*/
+  bottom: 0;
+  overflow-y:scroll; 
+  overflow-x:auto; 
+  background-color:rgba(0,0,0,0.8);/* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
 
 
