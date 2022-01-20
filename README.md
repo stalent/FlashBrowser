@@ -1,4 +1,5 @@
-@@ -1,40 +1,3 @@
+
+
 # Flash Browser  (please give us a :star:)
 A browser dedicating to supporting adobe flash. 
 Run flash player in browser on:
@@ -42,3 +43,5 @@ https://www.webfx.com/blog/web-design/flash_tutorial_websites/<br/> -->
 # Flash-Browser
 Flash Player enabled browser 
 https://github.com/radubirsan/FlashBrowser
+
+! This is Alpha Software, please install on VM and do not log into any inportant accounts.
