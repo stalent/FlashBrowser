@@ -9,6 +9,7 @@ const {autoUpdater} = require("electron-updater");
 const path = require('path');
 const Store = require('./store.js');
 const contextMenu = require('electron-context-menu');
+const { ipcMain } = require('electron');
 
 contextMenu({
 	showSaveImageAs: true
@@ -134,6 +135,8 @@ app.on('ready',   () => {
 		if(details.url.indexOf("whatsapp") > 0) {
 			details.requestHeaders['User-Agent'] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.3 Safari/605.1.15";
 		}
+		
+		
         callback({ requestHeaders: details.requestHeaders })
     });
 	
@@ -195,6 +198,13 @@ app.on('ready',   () => {
 			globalShortcut.register('CommandOrControl+F', () => {
 			mainWindow.webContents.send('on-find');
 			});
+			
+			function toggleWindowFullScreen(){
+				mainWindow.setFullScreen(!mainWindow.isFullScreen())
+			}
+			globalShortcut.register("F11", toggleWindowFullScreen);
+			globalShortcut.register("Escape", () => mainWindow.setFullScreen(true));
+			ipcMain.on('fs-click', toggleWindowFullScreen);
 		
 			globalShortcut.register("CTRL+SHIFT+I", () => {
 			 mainWindow.webContents.openDevTools();

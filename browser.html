@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="themes/chrome-like.css">
     </head>
-		<p style="color:grey;font-size:1px; height:28px; min-height:28px !important; -webkit-app-region: drag;"></p>	
+		<p id='topspacer' style="color:grey;font-size:1px; height:28px; min-height:28px !important; -webkit-app-region: drag;"></p>	
 		<div id="flash-tabs" style="display: inline;">
 			<embed id="FlashTab1" src="https://flash.pm/games/F.php?swf=files/adventure,%20escape,%20fighter/Achilles.swf" style='display: none;'  width="320" height="200"></embed>
 			<embed id="FlashTab2" src="https://flash.pm/games/F.php?swf=files/adventure,%20escape,%20fighter/Alias-3.swf" style='display: none;' width="320" height="200"></embed>
@@ -20,6 +20,7 @@
 			</div>
 			</div>
     <body>
+	 
 		<div id="window-controls">
 			<div class="button" id="min-button">
 				<img class="icon" srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x" draggable="false" />
@@ -34,12 +35,15 @@
 				<img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
 			</div>
 		</div>
+	 
         <div id="nav-body-tabs"></div>
+		
         <div id="nav-body-ctrls"></div>
+	 
         <div id="nav-body-views"></div>
 		
         <script>
-	
+	 const { ipcRenderer } = require('electron');
 		const Store = require('./store.js');
 		const store = new Store({
 		  configName: 'user-preferences'
@@ -60,6 +64,50 @@
                     return {options};
                 }
             });
+			
+			
+			function toggleFullscreen(event) {
+                    if(event.key === 'Escape'){
+                        ipcRenderer.send('fs-click');
+                        isFullScreen = false;
+                        header.style.display = oldStyle;
+						
+						tabs.style.display = oldStyle1;
+						nav.style.display = oldStyle2;
+						topspacer.style.display = oldStyle3;
+                    }
+                    if(event.type === 'click'){
+                        ipcRenderer.send('fs-click');
+                    }
+                    if (event.key === 'F11' || event.type === 'click') {
+                        isFullScreen = !isFullScreen;
+                        header.style.display = isFullScreen ? "none" : oldStyle;
+						tabs.style.display = isFullScreen ? "none" : oldStyle1;
+						nav.style.display =  isFullScreen ? "none" : oldStyle2;
+						topspacer.style.display =  isFullScreen ? "none" : oldStyle3;
+                    }
+            }
+            window.addEventListener('keyup', toggleFullscreen, true);
+
+            let nav = document.getElementById('nav-body-ctrls');
+			let tabs = document.getElementById('nav-body-tabs');
+			let header = document.getElementById('window-controls');
+			let topspacer = document.getElementById('topspacer');
+			
+            let controls = document.getElementById('nav-body-ctrls');
+            let oldStyle = getComputedStyle(header).display;
+			let oldStyle1 = getComputedStyle(tabs).display;
+			let oldStyle2 = getComputedStyle(nav).display;
+			let oldStyle3 = getComputedStyle(topspacer).display;
+			
+            let isFullScreen = false;
+            let fsButton = document.createElement("button");
+            fsButton.id = 'fs-button';
+			fsButton.width = 50;
+            fsButton.onclick = toggleFullscreen;
+            controls.appendChild(fsButton);
+			
+			
 			const {clipboard} = require('electron');
 //clipboard.writeText('Example String');
 let clipboardStr = clipboard.readText();
@@ -90,8 +138,10 @@ var lastArgument = window.process.argv[length-1]
 	
 
 
+			
+
 	function jsfunction(e){
-		console.log(e.target.href)
+		//console.log(e.target.href)
 		e.preventDefault(); //optional);
 		enav.newTab(e.target.href);
 	}
