@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-   "start": "electron .",
+    "start": "electron .",
     "publish": "electron-builder --win -p always",
     "build": "electron-builder --win",
     "build1": "electron-packager . FlashBrowser --platform=darwin --overwrite --icon=icon.icns",

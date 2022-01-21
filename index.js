@@ -204,7 +204,18 @@ app.on('ready',   () => {
 			}
 			globalShortcut.register("F11", toggleWindowFullScreen);
 			globalShortcut.register("Escape", () => mainWindow.setFullScreen(true));
-			ipcMain.on('fs-click', toggleWindowFullScreen);
+			ipcMain.on('fullScreen-click', toggleWindowFullScreen);
+			
+			
+			
+			ipcMain.on('clearChache-click', clearCacheFunction);
+			function clearCacheFunction(){
+				let session = mainWindow.webContents.session;
+					session.clearCache();
+					app.relaunch();
+					app.exit();
+			}
+			
 		
 			globalShortcut.register("CTRL+SHIFT+I", () => {
 			 mainWindow.webContents.openDevTools();
