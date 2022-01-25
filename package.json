@@ -30,6 +30,7 @@
     "electron-find": "^1.0.7",
     "electron-navigation": "^6.6.6",
     "electron-updater": "^4.3.5",
+    "electron-version": "^2.0.1",
     "resolve-dependencies": "^6.0.7"
   },
   "repository": {
