@@ -155,8 +155,6 @@ var lastArgument = window.process.argv[length-1]
                  } 
 				 
 // Set Home
-
-
 let setHomeButton = document.createElement("button");
 			 setHomeButton.id = 'fs-button';
 			 setHomeButton.innerHTML = '🏠';
@@ -389,9 +387,10 @@ navBar.addEventListener('keyup', checkFavorites);
 		
 		for ( var i=0; i < listFavorites.length; i++) 
 		{
-			console.log(i  + "  " + listFavorites[i]);
+			
 			deURL = listFavorites[i].replace(/(^\w+:|^)\/\//, '');
 			deURL = deURL.replace("www.", "");
+			//console.log(i  + "  " + listFavorites[i] + "!" + deURL);
 			if(e.keyCode !=8 && e.keyCode !=17 && !e.ctrlKey && deURL != inputText && deURL && deURL.indexOf(inputText) == 0 ) {
 				
 			console.log("Fond it" + deURL)

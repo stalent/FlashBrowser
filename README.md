@@ -1,4 +1,11 @@
-
+# Looking for contributors:
+Setup instructions:
+ - download & unzip code
+ - install node.js use command line to navigate to the unziped folder 
+ - npm install 
+ - npm run start
+ ( flash player not included in the source code, you can get it from previous builds )
+ 
 
 # Flash Browser  (please give us a :star:)
 A browser dedicating to supporting adobe flash. 
