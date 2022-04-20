@@ -1,5 +1,3 @@
-# Support Ukraine:
-https://twitter.com/Ukraine/status/1497594592438497282
 
 # Looking for contributors:
 Setup instructions:
